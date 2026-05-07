@@ -28,7 +28,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/projects', {
+      const res = await axios.get('/api/projects', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProjects(res.data);
@@ -41,7 +41,7 @@ const Projects = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/auth/users', {
+      const res = await axios.get('/api/auth/users', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(res.data);
@@ -54,7 +54,7 @@ const Projects = () => {
     if (!selectedUser) return;
     setAddingMember(true);
     try {
-      await axios.put(`http://localhost:5000/api/projects/${projectId}/add-member`, 
+      await axios.put(`/api/projects/${projectId}/add-member`, 
         { userId: selectedUser },
         { headers: { Authorization: `Bearer ${token}` } }
       );

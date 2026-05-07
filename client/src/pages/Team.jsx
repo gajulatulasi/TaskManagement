@@ -13,7 +13,7 @@ const Team = () => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/auth/users', {
+        const res = await axios.get('/api/auth/users', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsers(res.data);

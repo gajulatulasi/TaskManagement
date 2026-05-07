@@ -28,8 +28,8 @@ const CreateTask = () => {
     const fetchData = async () => {
       try {
         const [projRes, usersRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/projects', { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get('http://localhost:5000/api/auth/users', { headers: { Authorization: `Bearer ${token}` } })
+          axios.get('/api/projects', { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get('/api/auth/users', { headers: { Authorization: `Bearer ${token}` } })
         ]);
         setProjects(projRes.data);
         setUsers(usersRes.data);
@@ -51,7 +51,7 @@ const CreateTask = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/tasks', formData, {
+      await axios.post('/api/tasks', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       navigate('/tasks');

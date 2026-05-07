@@ -33,10 +33,10 @@ const ProjectDetails = () => {
   const fetchProjectDetails = async () => {
     try {
       const [projectRes, tasksRes] = await Promise.all([
-        axios.get(`http://localhost:5000/api/projects/${id}`, {
+        axios.get(`/api/projects/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get('http://localhost:5000/api/tasks', {
+        axios.get('/api/tasks', {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);
@@ -58,7 +58,7 @@ const ProjectDetails = () => {
     if (!window.confirm('Are you sure you want to delete this project? All associated tasks will also be deleted.')) return;
     
     try {
-      await axios.delete(`http://localhost:5000/api/projects/${id}`, {
+      await axios.delete(`/api/projects/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       navigate('/projects');

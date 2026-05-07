@@ -21,7 +21,7 @@ const CreateProject = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/projects', formData, {
+      await axios.post('/api/projects', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       navigate('/projects');
